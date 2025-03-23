@@ -1,112 +1,41 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-    <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
-    
-    <!-- Title and Subtitle -->
-    <title>視角切換 - 馬斯的網路大道 - routing guy(not switching) hierarchical L3 not L2 for sure L7 is not networking at all once programmer not sysadm app/L7 for living now 終究是網路咖</title>
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Read, read, read. Read everything—trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You&#39;ll absorb it. Opinions Are My Own">
-    <meta name="keywords" content="blog,programming,photography,cats">
-    <meta name="author" content="Mars Chen">
-    <meta name="language" content="zh-TW">
-    
-    <!-- CSS Files -->
-    
-<link rel="stylesheet" href="/css/reset.css">
+extends ../_partial/layout
 
-    
-<link rel="stylesheet" href="/css/style.css">
+block content
+  .container.post
+    section.article
+      .title= page.title
+      .date 写于#{moment(page.date).format(theme.date_format)}
+      .content!= page.content
+      if page.tags
+        .tags!= list_tags(page.tags, { show_count: false, class: 'tag', style: false, separator: '' })
 
-    
-<link rel="stylesheet" href="/css/markdown.css">
+  .container
+    ul.nav
+      if page.prev
+        li 上一篇：
+          a(href=url_for(page.prev.path))= page.prev.title || '未命名'
+      if page.next
+        li 下一篇：
+          a(href=url_for(page.next.path))= page.next.title || '未命名'
 
-    
-<link rel="stylesheet" href="/css/a11y-dark.min.css">
+    if !index && config.disqus_shortname
+      .comments
+        #disqus_thread
+          noscript Please enable JavaScript to view the 
+            a(href="http://disqus.com/?ref_noscript") comments powered by Disqus
 
-    
-<link rel="stylesheet" href="/css/custom.css">
-
-    
-    <!-- JavaScript Files -->
-    <script src="/js/highlight.min.js"></script>
-    <script src="/js/highlightjs-line-numbers.js"></script>
-    <script src="/js/copy-code.js"></script>
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-    <body>
-        <div class="paper">
-            <div class="paper-main">
-                <div class="post-header">
-    <a class="logo" href="/">馬斯的網路大道</a>
-</div>
-<div class="post-main">
-
-    
-    
-        <div class="post-main-title">
-            視角切換
-        </div>
-        <div class="post-content-meta">
-            2025-03-22
-        </div>
-        <div class="post-md">
-            <p>AI 編程的真正價值：回到宏觀視角，讓開發變得更輕鬆<br>在 AI 編程越來越普及的今天，我漸漸發現一個有趣的現象：<br>AI 並不總是讓你寫得更快，也不一定能直接提升程式碼品質，但它卻讓我覺得「寫程式變得比較輕鬆了」。這種輕鬆感，甚至會讓人對開發工作重新燃起熱情，彷彿整個職業生命又延長了十年。<br>那為什麼會這樣？我認為答案是：AI 編程讓開發者能夠長時間停留在宏觀視角，減少了視角切換帶來的心智負擔。</p>
-<h1 id="視角切換，是開發中最耗神的事"><a href="#視角切換，是開發中最耗神的事" class="headerlink" title="視角切換，是開發中最耗神的事"></a>視角切換，是開發中最耗神的事</h1><p>程式設計的過程，本質上需要開發者不斷在兩種思維模式間切換：</p>
-<ul>
-<li>宏觀視角：功能設計、模組結構、風格統一、架構演進。</li>
-<li>微觀視角：每一行程式碼的邏輯正確性、變數命名、bug 排查、參數傳遞。<br>一個優秀的開發者，必須學會在這兩者之間快速切換，像是工程師與藝術家的雙重身份。但問題是：這種切換是非常耗費心智資源的，尤其是在專案趕進度的壓力下，時間有限、問題接踵而至，大腦往往無法應付如此高頻的轉換。<br>很多時候，我們的疲憊並不是因為 coding 太久，而是因為不斷地在這兩種視角中跳來跳去，還得隨時切換思維模式、清理上下文、重建背景資訊。這些才是真正讓人「心累」的根源。</li>
-</ul>
-<p>AI 編程：讓你專注當設計師，而不是苦工<br>AI 的出現，最根本的改變是：<br>你可以長時間維持在宏觀視角，將繁瑣的細節交給 AI 處理。<br>例如，以前做重構要細細考慮每個參數、每個函式名稱的變更、依賴關係的連動；現在你只需要說明你的重構意圖，AI 就可以幫你初步實作，甚至搭配簡單的測試邏輯。<br>你像是一位建築師，只需畫出藍圖，AI 就像施工團隊，把細節處理好交給你確認。過程中，你不再需要從設計師身份跳回搬磚工，每一次的專注都能更持久、更深入。</p>
-<p>三個轉變，降低心智負擔<br>使用 AI 編程，會帶來以下三個明顯的轉變：</p>
-<ol>
-<li>降低認知切換成本：不用被小 bug 拉回去死磕，思路不中斷，大腦保持高階運作。</li>
-<li>從苦工到創作：專注於設計與創意，讓你更像一位產品設計師，而不是 bug 修補工。</li>
-<li>情緒與效率雙提升：少了焦躁與疲憊，更容易進入心流，持續保持產出與愉悅感。<br>這不只是一種效率的提升，而是一種「編程心態」的改變。你不再是被需求追著跑的工人，而是主動駕馭全局的創作者。</li>
-</ol>
-<p>結語：AI 延長了開發者的黃金歲月<br>AI 編程不是取代人類，而是讓我們重新找回「寫程式的樂趣」，減輕心智負擔，保持創造力和專注力。這是一種心理層面的釋放，也是一種專業壽命的延續。<br>在這個變化快速的時代，開發者的核心價值已經不只是會寫程式，而是能不能站穩宏觀視角，讓 AI 成為你最強的副駕。<br>願每一位開發者，都能用 AI 讓自己再寫十年，還是那麼熱愛技術、熱愛創造。</p>
-
-        </div>
+block js
+  != js('script/post')
+  if config.disqus_shortname
+    script
+      | var disqus_shortname = '!{config.disqus_shortname}';
+      if page.permalink
+        | var disqus_url = '!{page.permalink}';
+        | (function(){
+        |  var dsq = document.createElement('script');
+        |  dsq.type = 'text/javascript';
+        |  dsq.async = true;
+        |  dsq.src = '//' + disqus_shortname + '.disqus.com/!{page.comments ? 'embed.js' : 'count.hs'}';
+        |  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        | })();
         
-        
-
-    
-
-</div>
-<div class="post-header">
-    <a class="go-home" href="javascript:history.back()">
-        <svg width="8" height="14" viewBox="0 0 8 14">
-            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-</div>
-
-
-
-                <div class="footer">
-    <span id="copyright-year">Copyright © <span id="year"></span> 馬斯的網路大道  <a href="https://github.com/Alanrk/hexo-theme-onenote" target="_blank" >Theme-onenote</a></span>
-    <script type="text/javascript">
-     document.addEventListener('DOMContentLoaded', function() {
-      var yearElement = document.getElementById('year');
-      if (yearElement) {
-        var currentYear = new Date().getFullYear();
-        yearElement.textContent = currentYear;
-      }
-    });
-    
-    window.addEventListener('touchstart', function(event) {
-    // 处理 touchstart 事件的逻辑
-    // 如果不需要调用 event.preventDefault()，可以将事件处理程序标记为 'passive'
-     }, { passive: true });
-   </script>
-
-</div>
-
-
-            </div>
-        </div>
-    </body>
-</html>
