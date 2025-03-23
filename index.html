@@ -1,11 +1,10 @@
 extends ../_partial/layout
 
 block content
-
   .container.home
     each post in site.posts.sort('date', -1).data
       section.article
-        a(href=url_for(post.path)).title= post.title || '未命名'
+        a(href=url_for(post.path)).title= post.title || '未命名文章'
         div.content.excerpt!= post.excerpt || post.content
         if post.tags
           .tags!= list_tags(post.tags, { show_count: false, class: 'tag', style: false, separator: '' })
@@ -13,4 +12,3 @@ block content
           a.excerpt-link(href=url_for(post.path))= theme.excerpt_link
           .article-footer__right
             span.date 發表於 #{moment(post.date).format(theme.date_format)}
-        
