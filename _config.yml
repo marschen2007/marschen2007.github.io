@@ -3,18 +3,22 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: My Blog
-subtitle: ''
-description: 'My Personal Blog'
+title: 馬斯的網路大道
+subtitle: "routing guy(not switching) hierarchical L3 not L2 for sure L7 is not networking at all once programmer not sysadm app/L7 for living now 終究是網路咖"
+description: "Read, read, read. Read everything—trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You'll absorb it. Opinions Are My Own"
 keywords:
-author: marschen
+  - blog
+  - programming
+  - photography
+  - cats
+author: Mars Chen
 language: zh-TW
-timezone: 'Asia/Taipei'
+timezone: "Asia/Taipei"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://marschen2007.github.io
-permalink: :year/:month/:day/:title/
+permalink: ":year/:month/:day/:title/"
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -27,11 +31,11 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
-i18n_dir: :lang
+i18n_dir: ":lang"
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: ":title.md" # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
@@ -62,7 +66,7 @@ prismjs:
 index_generator:
   path: ''
   per_page: 10
-  order_by: -date
+  order_by: "-date"
 
 # Category & Tag
 default_category: uncategorized
@@ -77,10 +81,10 @@ meta_generator: true
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
+date_format: "YYYY-MM-DD"
+time_format: "HH:mm:ss"
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: "mtime"
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -96,11 +100,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: july
+theme: onenote
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
   repo: https://github.com/marschen2007/marschen2007.github.io
-  branch: gh-pages
+  branch: main
