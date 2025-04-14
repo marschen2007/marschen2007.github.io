@@ -108,3 +108,4 @@ deploy:
   type: git
   repo: https://github.com/marschen2007/marschen2007.github.io
   branch: main
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
