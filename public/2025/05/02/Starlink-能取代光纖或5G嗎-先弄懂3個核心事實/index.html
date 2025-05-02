@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    
+    <!-- Title and Subtitle -->
+    <title>Starlink 能取代光纖或 5G 嗎？先弄懂 3 個核心事實 - 馬斯的網路大道 - routing guy(not switching) hierarchical L3 not L2 for sure L7 is not networking at all once programmer not sysadm app/L7 for living now 終究是網路咖</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Read, read, read. Read everything—trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You&#39;ll absorb it. Opinions Are My Own">
+    <meta name="keywords" content="blog,programming,photography,cats">
+    <meta name="author" content="Mars Chen">
+    <meta name="language" content="zh-TW">
+    
+    <!-- CSS Files -->
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/markdown.css">
+
+    
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+    
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <!-- JavaScript Files -->
+    <script src="/js/highlight.min.js"></script>
+    <script src="/js/highlightjs-line-numbers.js"></script>
+    <script src="/js/copy-code.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                <div class="post-header">
+    <a class="logo" href="/">馬斯的網路大道</a>
+</div>
+<div class="post-main">
+
+    
+    
+        <div class="post-content-meta">
+            2025-05-02
+        </div>
+        <div class="post-md">
+            <h1 id="Starlink-能取代光纖或-5G-嗎？先弄懂-3-個核心事實"><a href="#Starlink-能取代光纖或-5G-嗎？先弄懂-3-個核心事實" class="headerlink" title="Starlink 能取代光纖或 5G 嗎？先弄懂 3 個核心事實"></a>Starlink 能取代光纖或 5G 嗎？先弄懂 3 個核心事實</h1><h2 id="1-天空-7-千顆-vs-地面上百萬座：基礎建設的級距差多大？"><a href="#1-天空-7-千顆-vs-地面上百萬座：基礎建設的級距差多大？" class="headerlink" title="1. 天空 7 千顆 vs. 地面上百萬座：基礎建設的級距差多大？"></a>1. 天空 7 千顆 vs. 地面上百萬座：基礎建設的級距差多大？</h2><table>
+<thead>
+<tr>
+<th>區域</th>
+<th>4G&#x2F;5G 基地台（含小型基地台）</th>
+<th>Starlink LEO 衛星</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>台灣</td>
+<td>約 29,000 座（經濟日報）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>美國</td>
+<td>142,100 座大型塔台 + 452,200 個小型基地台（近 60 萬站點，Light Reading）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>中國</td>
+<td>4,390,000+ 座 5G 基地台（人民日報）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Starlink</td>
+<td>—</td>
+<td>&gt; 7,300 顆在軌衛星（2025-05-01，太空飛行現在）</td>
+</tr>
+</tbody></table>
+<p>即使假設「一顆衛星≈一座基地台」的處理能力，Starlink 目前的節點數量仍只及台灣基地台的 20%、美國的 3%、中國的 0.2%。要在都會區提供和地面網路同級的併發容量，Starlink 受限於波束數、頻譜重用與用戶密度，先天就處於量級劣勢。</p>
+<h2 id="2-延遲比較：Starlink-進步很多，但仍高於地面網路"><a href="#2-延遲比較：Starlink-進步很多，但仍高於地面網路" class="headerlink" title="2. 延遲比較：Starlink 進步很多，但仍高於地面網路"></a>2. 延遲比較：Starlink 進步很多，但仍高於地面網路</h2><ul>
+<li>Starlink（LEO）：20–40 ms（天氣佳、距離地面閘道近）</li>
+<li>台灣光纖&#x2F;5G：5–15 ms</li>
+</ul>
+<p>和高軌衛星（&gt;600 ms）相比，Starlink 已大幅降低延遲；但對於即時遊戲或高頻交易，這 10 多毫秒的差距仍可能影響體感。</p>
+<h2 id="3-頻譜共享-vs-專用光纖：為何速度容易受到影響"><a href="#3-頻譜共享-vs-專用光纖：為何速度容易受到影響" class="headerlink" title="3. 頻譜共享 vs. 專用光纖：為何速度容易受到影響"></a>3. 頻譜共享 vs. 專用光纖：為何速度容易受到影響</h2><p>光纖給每戶一條「專用車道」，資料互不干擾；無線通訊（4G&#x2F;5G&#x2F;衛星）則是「共用道路」，大家擠在同一條頻譜上奔跑。當同一波束下用戶數飆升，Starlink 速度就會明顯下降——美國多州已出現高峰時段掉到 50 Mbps 甚至更低的實測報告。</p>
+<h2 id="4-天氣與遮蔽：台灣特殊氣候的考驗"><a href="#4-天氣與遮蔽：台灣特殊氣候的考驗" class="headerlink" title="4. 天氣與遮蔽：台灣特殊氣候的考驗"></a>4. 天氣與遮蔽：台灣特殊氣候的考驗</h2><ul>
+<li>需直視天空 (LOS)：天線若被高樓、山壁遮住，或陽台朝向不佳，連線品質大幅下降。</li>
+<li>雨衰問題：颱風與梅雨帶來的大雨對 Ka&#x2F;Ku 波段訊號衰減明顯，速度與穩定性都受影響。</li>
+</ul>
+<h2 id="5-成本與時程（台灣）"><a href="#5-成本與時程（台灣）" class="headerlink" title="5. 成本與時程（台灣）"></a>5. 成本與時程（台灣）</h2><p>Starlink 2024 年已獲 NCC 試驗執照，正式商用最快落在 2025 Q3。外界預估的「裝機費約 1.5 萬元、月費約 3,000 元」仍待官方公布；若價格接近美國 99 美元&#x2F;月水準，對都會用戶吸引力有限。</p>
+<h2 id="6-前瞻展望：Starlink-的位置與下一步"><a href="#6-前瞻展望：Starlink-的位置與下一步" class="headerlink" title="6. 前瞻展望：Starlink 的位置與下一步"></a>6. 前瞻展望：Starlink 的位置與下一步</h2><table>
+<thead>
+<tr>
+<th>優勢</th>
+<th>侷限</th>
+<th>未來看點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>快速部署、跨國漫遊、救災備援</td>
+<td>容量上限、頻譜共用、氣候影響</td>
+<td>第二代衛星 Direct-to-Cell（直連手機）、與 6G NTN 融合、與光纖&#x2F;5G 結合的混合網路</td>
+</tr>
+</tbody></table>
+<p><strong>結論：把 Starlink 當「補位」而非「取代」</strong></p>
+<ul>
+<li>最適合：偏遠山區、海域船舶、臨時救災、跨國旅居。</li>
+<li>不適合完全取代：都會區住家、高速雲端遊戲、超低延遲金融應用。</li>
+</ul>
+<p>Starlink 讓「全球隨時上網」更近一步，但它無法顛覆物理限制。懂得場景取捨，才是真正把科技用在刀口上。</p>
+
+        </div>
+        
+        
+            <div class="post-content-meta tags">
+                <div class="emo">#</div>
+                <div>
+                    
+                        <a href="/tags/Starlink/">Starlink</a>
+                    
+                        <a href="/tags/%E5%85%89%E7%BA%96/">光纖</a>
+                    
+                        <a href="/tags/5G/">5G</a>
+                    
+                </div>
+            </div>
+        
+
+    
+
+</div>
+<div class="post-header">
+    <a class="go-home" href="javascript:history.back()">
+        <svg width="8" height="14" viewBox="0 0 8 14">
+            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>
+
+
+
+                <div class="footer">
+    <span id="copyright-year">Copyright © <span id="year"></span> 馬斯的網路大道  <a href="https://github.com/Alanrk/hexo-theme-onenote" target="_blank" >Theme-onenote</a></span>
+    <script type="text/javascript">
+     document.addEventListener('DOMContentLoaded', function() {
+      var yearElement = document.getElementById('year');
+      if (yearElement) {
+        var currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+      }
+    });
+    
+    window.addEventListener('touchstart', function(event) {
+    // 处理 touchstart 事件的逻辑
+    // 如果不需要调用 event.preventDefault()，可以将事件处理程序标记为 'passive'
+     }, { passive: true });
+   </script>
+
+</div>
+
+
+            </div>
+        </div>
+    </body>
+</html>
