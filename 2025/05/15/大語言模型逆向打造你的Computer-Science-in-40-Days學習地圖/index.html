@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    
+    <!-- Title and Subtitle -->
+    <title>大語言模型逆向打造你的《Computer Science in 40 Days》學習地圖 - 馬斯的網路大道 - routing guy(not switching) hierarchical L3 not L2 for sure L7 is not networking at all once programmer not sysadm app/L7 for living now 終究是網路咖</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Read, read, read. Read everything—trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You&#39;ll absorb it. Opinions Are My Own">
+    <meta name="keywords" content="blog,programming,photography,cats">
+    <meta name="author" content="Mars Chen">
+    <meta name="language" content="zh-TW">
+    
+    <!-- CSS Files -->
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/markdown.css">
+
+    
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+    
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <!-- JavaScript Files -->
+    <script src="/js/highlight.min.js"></script>
+    <script src="/js/highlightjs-line-numbers.js"></script>
+    <script src="/js/copy-code.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                <div class="post-header">
+    <a class="logo" href="/">馬斯的網路大道</a>
+</div>
+<div class="post-main">
+
+    
+    
+        <div class="post-content-meta">
+            2025-05-15
+        </div>
+        <div class="post-md">
+            <h1 id="大語言模型逆向打造你的《Computer-Science-in-40-Days》學習地圖"><a href="#大語言模型逆向打造你的《Computer-Science-in-40-Days》學習地圖" class="headerlink" title="大語言模型逆向打造你的《Computer Science in 40 Days》學習地圖"></a>大語言模型逆向打造你的《Computer Science in 40 Days》學習地圖</h1><h2 id="緣起：尋找「那一本書」"><a href="#緣起：尋找「那一本書」" class="headerlink" title="緣起：尋找「那一本書」"></a>緣起：尋找「那一本書」</h2><p>長久以來，我都在尋找那「一本完整的書」。一本能清晰而全面地介紹電腦科學核心概念的著作。一本不是只是網頁拼貼式的學習資源，而是有架構、有邏輯、有上下文脈絡的教材。對於像我這樣重視理解與結構的人來說，這不僅是習慣，更是一種學習信仰。</p>
+<p>然而，隨著時間推進，即使是在資訊發展成熟的電腦科學領域，我也逐漸體會到——那一本完美的書，也許並不存在。或者說，它存在於無數材料之間，而我們需要自己去編織那一張屬於自己的知識地圖。</p>
+<hr>
+<h2 id="問題切入：60-天清單是否過於雜亂？"><a href="#問題切入：60-天清單是否過於雜亂？" class="headerlink" title="問題切入：60 天清單是否過於雜亂？"></a>問題切入：60 天清單是否過於雜亂？</h2><p>我起初找到一份標題為《Computer Science in 60 Days》的網路清單，從「什麼是電腦科學」開始，到「機器學習」、「系統設計」、「版本控制」等，整整列了 60 個主題，形式上頗像是一本壓縮成行事曆的教科書。</p>
+<p>但我馬上提出了一個問題：</p>
+<blockquote>
+<p>這 60 天的主題是否每一項都值得投入時間？是否有重複、低效或過度理論化的內容？</p>
+</blockquote>
+<p>這不是懷疑內容的價值，而是試圖以目標導向與時間報酬比來進行重新排序。這時，大語言模型（如 ChatGPT）發揮了作用：我與它對話、質疑、澄清、刪選，進行一場以自己為核心的知識工程設計。</p>
+<hr>
+<h2 id="逆向打造學習路線圖：從-60-天到-40-天"><a href="#逆向打造學習路線圖：從-60-天到-40-天" class="headerlink" title="逆向打造學習路線圖：從 60 天到 40 天"></a>逆向打造學習路線圖：從 60 天到 40 天</h2><p>經過幾輪來回，我將 60 項主題濃縮為實戰導向的 40 項重點主題，並分為五大模組：</p>
+<ol>
+<li><strong>基礎原理與系統運作</strong>（Day 1–8）</li>
+<li><strong>程式思維與邏輯訓練</strong>（Day 9–18）</li>
+<li><strong>資料結構與演算法核心</strong>（Day 19–26）</li>
+<li><strong>軟體工程與開發工具鏈</strong>（Day 27–33）</li>
+<li><strong>系統設計與現代架構實務</strong>（Day 34–40）</li>
+</ol>
+<p>每一模組下，我再請模型列出每日 6～10 項學習重點，幫助我事先理解「這一天到底要掌握什麼」。</p>
+<p>例如 <strong>Day 1: Binary &amp; Number Systems</strong>，就涵蓋：</p>
+<ul>
+<li>電腦只能處理 0 與 1，為何使用二進位</li>
+<li>進位制轉換的手動方法</li>
+<li>補數表示法</li>
+<li>位元與資料範圍的關係（2ⁿ 原理）</li>
+<li>浮點數與誤差問題</li>
+<li>小練習：45 的二進位轉換等</li>
+</ul>
+<p>透過這種方式，我不只得到了「要學什麼」，而且得到了「如何學」的分解方法與建議練習。這比只是翻書或看影片更具可操作性。</p>
+<hr>
+<h2 id="這不是替代書籍，而是讓書更有力量"><a href="#這不是替代書籍，而是讓書更有力量" class="headerlink" title="這不是替代書籍，而是讓書更有力量"></a>這不是替代書籍，而是讓書更有力量</h2><p>我要強調的是：這種做法並不是否定讀書的重要性。相反，我依然相信「書籍要讀，結構不能丟」。</p>
+<p>但透過與大語言模型互動，我獲得了一種新的流程：</p>
+<ol>
+<li>先建立大致框架與主題圖譜</li>
+<li>再依據框架選擇合適書籍或教材閱讀</li>
+<li>閱讀中遇到不懂的，與模型即時對話澄清</li>
+<li>閱讀後，請模型幫助總結與整理，快速複習，不必手動做筆記</li>
+</ol>
+<p>這是我目前最推薦的方式：</p>
+<blockquote>
+<p>讓大語言模型成為你的知識架構師、筆記助手與學習反饋器。</p>
+</blockquote>
+<hr>
+<h2 id="結語：未來的學習，不只是被動閱讀，而是主動建構"><a href="#結語：未來的學習，不只是被動閱讀，而是主動建構" class="headerlink" title="結語：未來的學習，不只是被動閱讀，而是主動建構"></a>結語：未來的學習，不只是被動閱讀，而是主動建構</h2><p>從一份普通的清單出發，透過對話、刪減、展開、深化，我建立了自己的電腦科學學習路線圖，並讓每一天的學習都有上下文與目的。</p>
+<p>這樣的流程，可以複製到任何領域——AI、經濟學、設計、語言學、甚至文學。你不再只是等待一位好老師或一本完美的書，而是能自己出發、自己提問、自己建立知識脈絡。</p>
+<p>未來的學習模式，可能不是某種新的教材形式，而是這樣一種模式的轉變：</p>
+<blockquote>
+<p>知識不再從外而來，而是由你引出；學習不是被動攝取，而是主動建構。</p>
+</blockquote>
+
+        </div>
+        
+        
+            <div class="post-content-meta tags">
+                <div class="emo">#</div>
+                <div>
+                    
+                        <a href="/tags/AI/">AI</a>
+                    
+                        <a href="/tags/LLM/">LLM</a>
+                    
+                        <a href="/tags/Computer-Science/">Computer Science</a>
+                    
+                        <a href="/tags/%E5%AD%B8%E7%BF%92%E6%96%B9%E6%B3%95/">學習方法</a>
+                    
+                </div>
+            </div>
+        
+
+    
+
+</div>
+<div class="post-header">
+    <a class="go-home" href="javascript:history.back()">
+        <svg width="8" height="14" viewBox="0 0 8 14">
+            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>
+
+
+
+                <div class="footer">
+    <span id="copyright-year">Copyright © <span id="year"></span> 馬斯的網路大道  <a href="https://github.com/Alanrk/hexo-theme-onenote" target="_blank" >Theme-onenote</a></span>
+    <script type="text/javascript">
+     document.addEventListener('DOMContentLoaded', function() {
+      var yearElement = document.getElementById('year');
+      if (yearElement) {
+        var currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+      }
+    });
+    
+    window.addEventListener('touchstart', function(event) {
+    // 处理 touchstart 事件的逻辑
+    // 如果不需要调用 event.preventDefault()，可以将事件处理程序标记为 'passive'
+     }, { passive: true });
+   </script>
+
+</div>
+
+
+            </div>
+        </div>
+    </body>
+</html>
