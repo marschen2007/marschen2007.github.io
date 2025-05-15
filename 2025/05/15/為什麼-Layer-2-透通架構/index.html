@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    
+    <!-- Title and Subtitle -->
+    <title>為什麼 Layer 2 透通架構？ - 馬斯的網路大道 - routing guy(not switching) hierarchical L3 not L2 for sure L7 is not networking at all once programmer not sysadm app/L7 for living now 終究是網路咖</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Read, read, read. Read everything—trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You&#39;ll absorb it. Opinions Are My Own">
+    <meta name="keywords" content="blog,programming,photography,cats">
+    <meta name="author" content="Mars Chen">
+    <meta name="language" content="zh-TW">
+    
+    <!-- CSS Files -->
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/markdown.css">
+
+    
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+    
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+    <!-- JavaScript Files -->
+    <script src="/js/highlight.min.js"></script>
+    <script src="/js/highlightjs-line-numbers.js"></script>
+    <script src="/js/copy-code.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                <div class="post-header">
+    <a class="logo" href="/">馬斯的網路大道</a>
+</div>
+<div class="post-main">
+
+    
+    
+        <div class="post-content-meta">
+            2025-05-15
+        </div>
+        <div class="post-md">
+            <h1 id="為什麼-Layer-2-透通架構？"><a href="#為什麼-Layer-2-透通架構？" class="headerlink" title="為什麼 Layer 2 透通架構？"></a>為什麼 Layer 2 透通架構？</h1><h2 id="一、我的背景與觀點"><a href="#一、我的背景與觀點" class="headerlink" title="一、我的背景與觀點"></a>一、我的背景與觀點</h2><p>我的網路職涯前半段十五年，專注於電信骨幹、國際互連與路由協定（BGP、ISIS、MPLS、QoS）。那是一個階層明確、邏輯清晰、可預測性極高的時代。Cisco CCIE（Routing &amp; Switching）是當時的標竿，代表著結構與嚴謹設計的極致追求。</p>
+<p>而後的十五年，我轉向企業網路與應用安全架構，涵蓋防火牆、負載平衡器與 Web Application Firewall（WAF）。然而，我一次又一次地遭遇一種讓我感到不解、甚至痛苦的設計選擇：<strong>Layer 2 透通架構的持續存在</strong>。</p>
+<h2 id="二、什麼是-Layer-2-透通架構？"><a href="#二、什麼是-Layer-2-透通架構？" class="headerlink" title="二、什麼是 Layer 2 透通架構？"></a>二、什麼是 Layer 2 透通架構？</h2><p>所謂「L2 透通」，簡單來說就是把一台中介設備（如 WAF 或 IPS）<strong>以透明橋接（bridge mode）嵌入兩台交換器之間</strong>。</p>
+<ul>
+<li>沒有 IP 地址</li>
+<li>不改變任何一端的配置或預設閘道</li>
+<li>流量在進出時被檢查處理，但整體網路層架構毫無變動</li>
+</ul>
+<p>對導入設備的負責人來說，它看似是<strong>最低風險的部署方式</strong>：<br>不需改設定、不必通知應用團隊、也不影響現有 IP 架構。</p>
+<p>但對於追求架構階層性、可擴展性與可維運性的我而言，這是一種<strong>犧牲長期彈性、換取短期省事的妥協</strong>。<br>我稱之為：<strong>低責任型網路設計（Low Responsibility Architecture）</strong>。</p>
+<h2 id="三、Layer-2-架構的技術代價與風險"><a href="#三、Layer-2-架構的技術代價與風險" class="headerlink" title="三、Layer 2 架構的技術代價與風險"></a>三、Layer 2 架構的技術代價與風險</h2><h3 id="A-架構與維運角度"><a href="#A-架構與維運角度" class="headerlink" title="A. 架構與維運角度"></a>A. 架構與維運角度</h3><ol>
+<li><p><strong>架構無層次、責任邊界模糊</strong><br>無法從 Layer 3 規劃拓樸，問題難以隔離。</p>
+</li>
+<li><p><strong>缺乏可視化與主動導控能力</strong><br>沒有 IP，就難以做 NAT、Proxy、PBR 等策略控制。</p>
+</li>
+<li><p><strong>問題排查只能靠 Wireshark</strong><br>沒有 routing table，不能 hop-by-hop trace，維運只能依賴封包分析。</p>
+</li>
+<li><p><strong>高可用策略支援困難</strong><br>需要外部網路搭配，設計不直觀。</p>
+</li>
+<li><p><strong>無法參與 Routing Decision 與流量學習</strong><br>損失智能導控能力。</p>
+</li>
+</ol>
+<h3 id="B-安全與應用架構角度"><a href="#B-安全與應用架構角度" class="headerlink" title="B. 安全與應用架構角度"></a>B. 安全與應用架構角度</h3><ol>
+<li><p><strong>難以擔任策略節點（Policy Anchor）</strong><br>不具 IP 身份，難以扮演安全策略控制點。</p>
+</li>
+<li><p><strong>Fail Open&#x2F;Bypass 是應急，不是架構設計</strong><br>許多企業誤將 bypass 視為高可用方案，實際上設備故障時網路將不設防。</p>
+</li>
+</ol>
+<h3 id="C-人性與文化角度"><a href="#C-人性與文化角度" class="headerlink" title="C. 人性與文化角度"></a>C. 人性與文化角度</h3><ol>
+<li><p><strong>企業團隊對 Routing 不熟悉，不敢用 L3 架構</strong><br>多數人只熟靜態路由，缺乏設計信心。</p>
+</li>
+<li><p><strong>供應商傾向推動 L2 快速交付模式</strong><br>表面風險低、部署簡單。</p>
+</li>
+<li><p><strong>跨部門變革成本高</strong><br>改一個 IP 可能牽動 DNS、防火牆、應用設定，阻力大。</p>
+</li>
+</ol>
+<h2 id="四、為什麼這樣的架構仍持續存在？"><a href="#四、為什麼這樣的架構仍持續存在？" class="headerlink" title="四、為什麼這樣的架構仍持續存在？"></a>四、為什麼這樣的架構仍持續存在？</h2><p>從用戶角度來看，<strong>L2 是「最少阻力路徑」</strong>：</p>
+<ul>
+<li>不必跨部門協調  </li>
+<li>不用動 DNS 或 IP  </li>
+<li>不需理解 Routing、HA、VRRP、PBR 等概念</li>
+</ul>
+<p>這讓它成為<strong>預算控管與風險評估下的「最佳短期選擇」</strong>。</p>
+<p>但同時也積累了嚴重的<strong>長期技術債</strong>：</p>
+<ul>
+<li>缺乏彈性</li>
+<li>無法擴展</li>
+<li>策略能見度與維運透明度皆低</li>
+</ul>
+<h2 id="五、結語：你的架構，就是你的價值選擇"><a href="#五、結語：你的架構，就是你的價值選擇" class="headerlink" title="五、結語：你的架構，就是你的價值選擇"></a>五、結語：你的架構，就是你的價值選擇</h2><p>我曾反思，是否是我太排斥臨時解法。但我越來越相信：<br><strong>架構設計反映的是組織的風險哲學與長期思維。</strong></p>
+<p>你選擇不配置 IP、不做 Routing、不管理流量，<strong>不代表你沒有風險</strong>。<br>你不設定邊界，<strong>不代表世界會給你安全的邊界</strong>。</p>
+<blockquote>
+<p>Layer 2 可以是一種應急模式，但永遠不該成為你的主要架構設計。</p>
+</blockquote>
+<hr>
+<p><em>架構不是技術選項，而是責任選擇。選擇什麼樣的網路架構，實際上就是選擇什麼樣的組織文化與風險承擔方式。</em></p>
+
+        </div>
+        
+        
+            <div class="post-content-meta tags">
+                <div class="emo">#</div>
+                <div>
+                    
+                        <a href="/tags/Layer-2/">Layer 2</a>
+                    
+                        <a href="/tags/%E7%B6%B2%E8%B7%AF%E6%9E%B6%E6%A7%8B/">網路架構</a>
+                    
+                        <a href="/tags/%E6%8A%80%E8%A1%93%E8%A7%A3%E6%9E%90/">技術解析</a>
+                    
+                </div>
+            </div>
+        
+
+    
+
+</div>
+<div class="post-header">
+    <a class="go-home" href="javascript:history.back()">
+        <svg width="8" height="14" viewBox="0 0 8 14">
+            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>
+
+
+
+                <div class="footer">
+    <span id="copyright-year">Copyright © <span id="year"></span> 馬斯的網路大道  <a href="https://github.com/Alanrk/hexo-theme-onenote" target="_blank" >Theme-onenote</a></span>
+    <script type="text/javascript">
+     document.addEventListener('DOMContentLoaded', function() {
+      var yearElement = document.getElementById('year');
+      if (yearElement) {
+        var currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+      }
+    });
+    
+    window.addEventListener('touchstart', function(event) {
+    // 处理 touchstart 事件的逻辑
+    // 如果不需要调用 event.preventDefault()，可以将事件处理程序标记为 'passive'
+     }, { passive: true });
+   </script>
+
+</div>
+
+
+            </div>
+        </div>
+    </body>
+</html>
