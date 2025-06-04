@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // 按钮点击事件
         button.addEventListener('click', () => {
-            const text = block.innerText;
+            const text = block.textContent;
             navigator.clipboard.writeText(text).then(() => {
                 button.textContent = '已复制!';
                 setTimeout(() => {
@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    hljs.highlightAll();
-    hljs.initLineNumbersOnLoad();
+    if (window.hljs) {
+        hljs.highlightAll();
+        if (hljs.initLineNumbersOnLoad) {
+            hljs.initLineNumbersOnLoad();
+        }
+    }
 });
